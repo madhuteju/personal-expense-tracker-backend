@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/expenses")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://personal-expense-tracker-frontend-one.vercel.app")
 public class ExpenseController {
 
 private final ExpenseRepository repository;

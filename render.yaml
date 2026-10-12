@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: expense-tracker-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: expense-tracker-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: expense-tracker-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: expense-tracker-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: expense-tracker-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: expense-tracker-db
+          property: password
+
+databases:
+  - name: expense-tracker-db
+    plan: free
+    databaseName: expense_tracker
+    user: expense_tracker
